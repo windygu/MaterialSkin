@@ -322,7 +322,7 @@ namespace MaterialSkin.Controls
 				{
 					resizeDir = ResizeDirection.None;
 
-					//Only reset the cursur when needed, this prevents it from flickering when a child control changes the cursor to its own needs
+					//Only reset the cursor when needed, this prevents it from flickering when a child control changes the cursor to its own needs
 					if (resizeCursors.Contains(Cursor))
 					{
 						Cursor = Cursors.Default;
@@ -370,21 +370,21 @@ namespace MaterialSkin.Controls
                 {
                     buttonState = ButtonState.MinOver;
 
-                    if (oldState == ButtonState.MinDown)
+                    if (oldState == ButtonState.MinDown && up)
                         WindowState = FormWindowState.Minimized;
                 }
                 else if (showMin && showMax && minButtonBounds.Contains(e.Location))
                 {
                     buttonState = ButtonState.MinOver;
 
-                    if (oldState == ButtonState.MinDown)
+                    if (oldState == ButtonState.MinDown && up)
                         WindowState = FormWindowState.Minimized;
                 }
                 else if (MaximizeBox && ControlBox && maxButtonBounds.Contains(e.Location))
                 {
                     buttonState = ButtonState.MaxOver;
 
-                    if (oldState == ButtonState.MaxDown)
+                    if (oldState == ButtonState.MaxDown && up)
                         MaximizeWindow(!Maximized);
 
                 }
@@ -392,7 +392,7 @@ namespace MaterialSkin.Controls
                 {
                     buttonState = ButtonState.XOver;
 
-                    if (oldState == ButtonState.XDown)
+                    if (oldState == ButtonState.XDown && up)
                         Close();
                 }
                 else buttonState = ButtonState.None;
